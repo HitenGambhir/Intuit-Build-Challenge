@@ -1,7 +1,8 @@
 # Intuit Build Challenge – Assignment 1 & Assignment 2
 
 This repository contains my complete solution for both assignments from the Intuit Build Challenge.  
-Each assignment is implemented in Python with clean structure, comments, and separate test files.  
+Each assignment is implemented in Python with clean structure, comments, and separate test files, and the console output for each assignment is also saved in the respective `test_output.txt` file.
+
 The solutions fully match the requirements described in the challenge instructions.
 
 GITHUB REPO STRUCTURE DIAGRAM
