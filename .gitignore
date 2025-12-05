@@ -1,0 +1,34 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code settings
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Test output files
+test_output.txt
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Temporary files
+*.tmp
+*.log
+*.out
+
+# CSV backup or temporary variations
+*.csv~
+*.bak
+
+# Pytest cache (if used)
+.pytest_cache/
+
+# Jupyter notebook checkpoints (if any)
+.ipynb_checkpoints/
