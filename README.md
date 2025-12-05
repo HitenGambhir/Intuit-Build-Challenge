@@ -46,9 +46,10 @@ Covers:
 - Successful stopping using sentinel  
 
 ### **5. Test Output**
-A clean demonstration log is saved 
-
-
+A clean demonstration log is saved in :
+```
+assignment1/test_output.txt
+```
 This shows queue sizes, consumption order, and thread behavior.
 
 ---
