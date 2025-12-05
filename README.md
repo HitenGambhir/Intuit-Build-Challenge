@@ -4,6 +4,26 @@ This repository contains my complete solution for both assignments from the Intu
 Each assignment is implemented in Python with clean structure, comments, and separate test files.  
 The solutions fully match the requirements described in the challenge instructions.
 
+GITHUB REPO STRUCTURE DIAGRAM
+```
+Intuit-Build-Challenge/
+│
+├── assignment1/
+│   ├── producer_consumer.py
+│   ├── test_producer_consumer.py
+│   └── test_output.txt
+│
+├── assignment2/
+│   ├── 100 Sales Records.csv
+│   ├── sales_analysis.py
+│   ├── test_sales_analysis.py
+│   └── test_output.txt
+│
+├── .gitignore
+└── README.md
+```
+
+
 ---
 
 # 📘 Assignment 1 – Producer–Consumer Pattern
