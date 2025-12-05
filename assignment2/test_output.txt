@@ -1,0 +1,22 @@
+
+=== SALES ANALYSIS VERBOSE DEMO (TEST OUTPUT) ===
+
+Loaded: 4 records
+Total Revenue: 4344531.05
+Total Profit: 1443941.43
+Top Region: Australia and Oceania
+
+Revenue by Region:
+  Australia and Oceania: 2533654.0
+  Central America and the Caribbean: 576782.8
+  Europe: 1158502.59
+  Sub-Saharan Africa: 75591.66
+
+Revenue by Month:
+  2010-05: 2533654.0
+  2012-08: 576782.8
+  2014-05: 1158502.59
+  2014-06: 75591.66
+
+=== END OF VERBOSE DEMO ===
+

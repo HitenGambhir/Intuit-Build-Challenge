@@ -1,0 +1,27 @@
+
+=== PRODUCER–CONSUMER DEMO START ===
+
+Producer: Starting...
+Producer: putting 1 (queue size: 0)
+Consumer: Starting...
+Consumer: waiting... (queue size: 1)
+Consumer: got 1 → dest=[1]
+Producer: putting 2 (queue size: 0)
+Consumer: waiting... (queue size: 1)
+Consumer: got 2 → dest=[1, 2]
+Producer: putting 3 (queue size: 0)
+Producer: putting 4 (queue size: 1)
+Consumer: waiting... (queue size: 2)
+Consumer: got 3 → dest=[1, 2, 3]
+Producer: putting 5 (queue size: 1)
+Consumer: waiting... (queue size: 2)
+Consumer: got 4 → dest=[1, 2, 3, 4]
+Producer: Done
+Consumer: waiting... (queue size: 2)
+Consumer: got 5 → dest=[1, 2, 3, 4, 5]
+Consumer: waiting... (queue size: 1)
+Consumer: received sentinel, stopping
+Consumer: Done
+
+=== PRODUCER–CONSUMER DEMO END ===
+
