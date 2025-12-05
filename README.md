@@ -1,11 +1,13 @@
 # Intuit Build Challenge – Assignment 1 & Assignment 2
 
 This repository contains my complete solution for both assignments from the Intuit Build Challenge.  
-Each assignment is implemented in Python with clean structure, comments, and separate test files, and the console output for each assignment is also saved in the respective `test_output.txt` file.
+Each assignment is implemented in Python with clean structure, comments, separate test files, and console output stored inside each assignment’s `test_output.txt`.  
+The solutions fully follow the requirements defined in the challenge instructions.
 
-The solutions fully match the requirements described in the challenge instructions.
+---
 
-GITHUB REPO STRUCTURE DIAGRAM
+# 📁 GitHub Repository Structure
+
 ```
 Intuit-Build-Challenge/
 │
@@ -24,167 +26,175 @@ Intuit-Build-Challenge/
 └── README.md
 ```
 
-
 ---
 
 # 📘 Assignment 1 – Producer–Consumer Pattern
 
-## ✔ What the assignment required
-- Implement the classic Producer–Consumer pattern  
-- Use a bounded queue with blocking behavior  
-- Use locks + condition variables for synchronization  
-- Implement Producer and Consumer classes  
-- Stop consumers using a sentinel value  
-- Provide unit tests validating behavior  
-
-All these requirements are implemented exactly as described.
+## ✔ Requirements Implemented
+- Bounded queue with blocking behavior  
+- Thread synchronization with `Lock` + `Condition`  
+- Producer and Consumer threads  
+- Sentinel-based stopping  
+- Comprehensive unit tests  
 
 ---
 
-## ✔ What I implemented
+## ✔ Implementation Summary
 
 ### **1. BoundedQueue**
-- Thread-safe queue  
-- `put()` waits when full  
-- `get()` waits when empty  
-- Uses `Lock()` and `Condition()`  
+Thread-safe queue with:
+- `put()` waits if full  
+- `get()` waits if empty  
 
 ### **2. Producer**
-- Reads items from a list  
-- Pushes them to the queue  
+Pushes items from a list into the queue.
 
 ### **3. Consumer**
-- Reads items from the queue  
-- Stops when sentinel received  
+Consumes queue items and stops on sentinel.
 
-### **4. Tests (`test_producer_consumer.py`)**
-Covers:
-- Basic queue operations  
-- Blocking behavior  
-- Correct producer/consumer workflow  
-- Multiple producers  
-- Stress test with many items  
-- Successful stopping using sentinel  
+### **4. Tests**
+Validates:
+- Queue correctness  
+- Blocking when full  
+- Blocking when empty  
+- Single & multiple producers  
+- Stress cases  
+- Sentinel stop  
 
-### **5. Test Output**
-A clean demonstration log is saved in :
+### **5. Sample Output (from `test_output.txt`)**
+
 ```
-assignment1/test_output.txt
+=== PRODUCER–CONSUMER DEMO START ===
+
+Producer: Starting...
+Producer: putting 1 (queue size: 0)
+Consumer: Starting...
+Consumer: waiting... (queue size: 1)
+Consumer: got 1 → dest=[1]
+Producer: putting 2 (queue size: 0)
+Consumer: waiting... (queue size: 1)
+Consumer: got 2 → dest=[1, 2]
+Producer: putting 3 (queue size: 0)
+Producer: putting 4 (queue size: 1)
+Consumer: waiting... (queue size: 2)
+Consumer: got 3 → dest=[1, 2, 3]
+Producer: putting 5 (queue size: 1)
+Consumer: waiting... (queue size: 2)
+Consumer: got 4 → dest=[1, 2, 3, 4]
+Producer: Done
+Consumer: waiting... (queue size: 2)
+Consumer: got 5 → dest=[1, 2, 3, 4, 5]
+Consumer: waiting... (queue size: 1)
+Consumer: received sentinel, stopping
+Consumer: Done
+
+=== PRODUCER–CONSUMER DEMO END ===
 ```
-This shows queue sizes, consumption order, and thread behavior.
 
 ---
 
-## ▶️ How to Run / Test Assignment 1
+## ▶️ How to Run Tests for Assignment 1
 
-Go to the folder:
 ```bash
 cd assignment1
 python3 -m unittest -v
 ```
 
+---
+
 # 📗 Assignment 2 – Sales Data Analysis
 
-## ✔ What the assignment required
-- Read and process the “100 Sales Records” CSV file  
-- Convert each row into a usable data structure  
-- Compute the following:
-  - Total revenue
-  - Total profit
-  - Revenue by region
-  - Profit by region
-  - Revenue by item type
-  - Orders by sales channel
-  - Monthly revenue
-  - Average units per order
-  - Top region by profit  
-- Keep code simple and well-commented  
-- Add a full separate test file  
-- Produce clean output of results  
-
-All requirements are completed exactly as described in the challenge instructions.
+## ✔ Requirements Implemented
+- Load CSV into structured records  
+- Compute:
+  - revenue & profit totals  
+  - revenue/profit by region  
+  - revenue by item type  
+  - orders by sales channel  
+  - revenue by month  
+  - average units  
+  - top-performing region  
+- Separate test file validating all logic  
+- Output summary stored in `test_output.txt`  
 
 ---
 
-## ✔ What I implemented
+## ✔ Implementation Summary
 
-### **1. Data Loading**
-- A `SalesRecord` dataclass is used for each row.  
-- `read_sales()` loads the CSV, parses numeric values, and returns a list of records.
+### **1. SalesRecord dataclass**
+Defines the structure for each CSV row.
 
 ### **2. Analysis Functions**
-Implemented:
-- `total_revenue()`
-- `total_profit()`
-- `revenue_by_region()`
-- `profit_by_region()`
-- `revenue_by_item_type()`
-- `orders_by_channel()`
-- `revenue_by_month()`
-- `average_units_per_order()`
-- `top_region_by_profit()`
+Includes:
+- `total_revenue()`  
+- `total_profit()`  
+- `revenue_by_region()`  
+- `profit_by_region()`  
+- `orders_by_channel()`  
+- `revenue_by_item_type()`  
+- `revenue_by_month()`  
+- `average_units_per_order()`  
+- `top_region_by_profit()`  
 
-All processing logic aligns with the challenge requirements.
-
-### **3. Tests (test_sales_analysis.py)**
+### **3. Tests**
 Covers:
-- CSV parsing accuracy  
-- Correct revenue & profit totals  
-- Grouping by region, item type, channel  
-- Monthly aggregates  
-- Average units  
-- Top region correctness  
+- CSV parsing  
+- All summary calculations  
+- Grouping accuracy  
+- Month extraction  
+- Edge case handling  
 
-### **4. Output Demonstration**
-The test file prints a summary and stores the output in:
+### **4. Sample Output (from `test_output.txt`)**
 
 ```
-assignment2/test_output.txt
+=== SALES ANALYSIS VERBOSE DEMO (TEST OUTPUT) ===
+
+Loaded: 4 records
+Total Revenue: 4344531.05
+Total Profit: 1443941.43
+Top Region: Australia and Oceania
+
+Revenue by Region:
+  Australia and Oceania: 2533654.0
+  Central America and the Caribbean: 576782.8
+  Europe: 1158502.59
+  Sub-Saharan Africa: 75591.66
+
+Revenue by Month:
+  2010-05: 2533654.0
+  2012-08: 576782.8
+  2014-05: 1158502.59
+  2014-06: 75591.66
+
+=== END OF VERBOSE DEMO ===
 ```
 
 ---
 
-## ▶️ How to Run / Test Assignment 2
+## ▶️ How to Run Tests for Assignment 2
 
-Move into the folder:
 ```bash
 cd assignment2
-```
-
-Run the tests:
-```bash
 python3 -m unittest -v
 ```
----
-
-# ✔ Final Notes
-
-Both assignments have been implemented according to the requirements described in the challenge instructions.  
-Each assignment includes clean Python code, comments explaining the logic, and separate test files that fully validate the functionality.
-
-The project is structured for easy navigation and review, and each assignment can be run and tested independently.  
-All calculations, threading behavior, and outputs were verified through automated unit tests.
 
 ---
 
 # 🤖 About AI Assistance
 
-AI was used only to assist with:
+AI was used only for:
 - Improving clarity of documentation  
-- Helping format this README  
-- Suggesting better comment structure  
-- Helping organize the project explanation  
+- Formatting the README  
+- Refining comment style and structure  
 
-All code, logic, algorithms, and tests were written and verified manually.  
-AI was not used to generate the core implementations — only as a support tool for writing, clarity, and presentation.
-
-This ensures the work reflects my own understanding while benefiting from clearer communication.
+The code, logic, and tests were written manually.  
+AI assisted only with readability, not implementation.
 
 ---
 
+# ✔ Final Notes
 
-
-
-
-
+- Both assignments fully match the challenge instructions.  
+- Code is clean, tested, and easy to review.  
+- Output for both assignments is stored in `test_output.txt`.  
 
